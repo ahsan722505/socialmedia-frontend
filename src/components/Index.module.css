@@ -1,0 +1,25 @@
+.btnCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 35vh;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+.btnCont * {
+  margin: 0.2rem 0;
+  padding: 1rem 2.7rem;
+  font-size: 1.2rem;
+}
+.btnCont p {
+  color: rgb(40, 207, 40);
+}
+.btnCont button {
+  background-color: rgba(76, 0, 130, 0.815);
+  color: rgb(40, 207, 40);
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+}

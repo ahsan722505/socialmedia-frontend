@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 30vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  /* border: 2px solid red; */
+  width: 70%;
+}
+.form * {
+  margin: 0.7rem 0;
+  color: rgb(40, 207, 40);
+}
+.form input {
+  padding: 0.7rem 0;
+  width: 100%;
+  padding-left: 0.3rem;
+}
+.form button {
+  padding: 0.7rem 1.7rem;
+  border-radius: 1rem;
+  background-color: rgba(76, 0, 130, 0.815);
+  color: rgb(40, 207, 40);
+  border: none;
+  cursor: pointer;
+}
+.help button {
+  background-color: #3f3f3f;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  margin-left: 0.2rem;
+}
+@media (min-width: 700px) {
+  .form {
+    width: 40%;
+  }
+}

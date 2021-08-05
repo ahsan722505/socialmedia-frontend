@@ -1,0 +1,13 @@
+.like {
+  list-style: none;
+  background-color: rgba(85, 23, 129, 0.815);
+  margin-bottom: 1rem;
+  width: 50%;
+  padding: 0.5rem;
+  color: rg;
+  border-radius: 1rem;
+  color: rgb(40, 207, 40);
+}
+.likes {
+  padding-left: 1rem;
+}
