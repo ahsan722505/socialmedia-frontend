@@ -21,6 +21,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
+
   /* padding-top: 2rem; */
   /* overflow: auto; */
   /* border: 2px solid red; */

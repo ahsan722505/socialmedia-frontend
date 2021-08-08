@@ -5,8 +5,16 @@ import Posts from "./Posts";
 const Main = (props) => {
   return (
     <React.Fragment>
-      <Header user={props.user} />
-      <Posts posts={props.posts} />
+      <Header
+        user={props.user}
+        onLogOut={props.onLogOut}
+        onAgainRequest={props.onAgainRequest}
+      />
+      <Posts
+        posts={props.posts}
+        onAgainRequest={props.onAgainRequest}
+        user={props.user}
+      />
     </React.Fragment>
   );
 };

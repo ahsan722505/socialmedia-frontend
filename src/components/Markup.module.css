@@ -25,3 +25,14 @@
   justify-content: center;
   color: rgba(76, 0, 130, 0.815);
 }
+.form button:disabled {
+  background-color: rgb(104, 104, 104);
+  color: #3f3f3f;
+}
+.loadCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

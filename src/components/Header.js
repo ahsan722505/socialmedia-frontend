@@ -14,8 +14,10 @@ const Header = (props) => {
   return (
     <React.Fragment>
       <header className={styles.header}>
-        <button className={styles.btn}>Log out</button>
-        <div className={styles.user}>Logged In as {props.user.username}</div>
+        <button className={styles.btn} onClick={props.onLogOut}>
+          Log out
+        </button>
+        <div className={styles.user}>Logged In as {props.user}</div>
       </header>
       <div className={styles.btnCont}>
         <button className={styles.btn} onClick={showMarkupHandler}>
@@ -24,7 +26,10 @@ const Header = (props) => {
       </div>
       {showMarkup && (
         <Modal onClose={closeMarkupHandler}>
-          <Markup />
+          <Markup
+            onClose={closeMarkupHandler}
+            onAgainRequest={props.onAgainRequest}
+          />
         </Modal>
       )}
     </React.Fragment>

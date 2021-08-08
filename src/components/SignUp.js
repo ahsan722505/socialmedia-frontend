@@ -1,6 +1,17 @@
 import styles from "./SignUp.module.css";
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = css`
+  border-color: rgb(40, 207, 40);
+  position: fixed;
+  top: 40vh;
+
+  left: 45vw;
+`;
+const color = "#ffffff";
+
 const validity = (value) => {
   return value.trim().length !== 0;
 };
@@ -77,18 +88,25 @@ const SignUp = (props) => {
       const addUser = async () => {
         setLoading(true);
         setcontent(false);
-        const response = await fetch("http://localhost:8080/api/signup", {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify({
-            username: user,
-            email: email,
-            password: pass,
-          }),
-        });
+        const response = await fetch(
+          "https://polar-mountain-47234.herokuapp.com/api/signup",
+          {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({
+              username: user.trim(),
+              email: email.trim(),
+              password: pass,
+            }),
+          }
+        );
         const data = await response.json();
         setLoading(false);
         setcontent(true);
+        const { accessToken } = data;
+        if (accessToken) {
+          localStorage.setItem("Authorization", `Bearer ${accessToken}`);
+        }
         const { ok, emailExist, usernameExist } = data;
 
         if (emailExist) {
@@ -97,7 +115,9 @@ const SignUp = (props) => {
         if (usernameExist) {
           setusernameExist(true);
         } else if (!emailExist && !usernameExist) {
-          props.onShowMain();
+          // props.onSetUser(user.trim());
+          // props.onShowMain();
+          props.onAgainRequest();
         }
       };
       addUser();
@@ -163,7 +183,10 @@ const SignUp = (props) => {
         </button>
         <div className={styles.helpCont}>
           <p className={styles.help}>
-            Already have an account? <button type="button">Login</button>
+            Already have an account?{" "}
+            <button type="button" onClick={props.onShowLogin}>
+              Login
+            </button>
           </p>
         </div>
       </form>
@@ -172,7 +195,14 @@ const SignUp = (props) => {
   return (
     <React.Fragment>
       {showContent && content}
-      {isLoading && <p>Loading...</p>}
+      {isLoading && (
+        <ClipLoader
+          color={color}
+          loading={isLoading}
+          css={override}
+          size={50}
+        />
+      )}
     </React.Fragment>
   );
 };

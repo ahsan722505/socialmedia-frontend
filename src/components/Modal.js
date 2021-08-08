@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import styles from "./Modal.module.css";
 import ReactDom from "react-dom";
 import { Scrollbars } from "react-custom-scrollbars";
+
 const BackDrop = (props) => {
   return <div className={styles.backdrop} onClick={props.onClick} />;
 };
@@ -18,7 +19,8 @@ const ModalOverlay = (props) => {
   );
 };
 const portalElement = document.getElementById("overlays");
-
+let changeContent;
+let changeLoading;
 const Modal = (props) => {
   return (
     <Fragment>

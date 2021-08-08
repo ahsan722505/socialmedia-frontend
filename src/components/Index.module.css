@@ -3,10 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: fixed;
-  top: 35vh;
-  left: 50vw;
-  transform: translateX(-50%);
+  height: 70vh;
+  /* border: 2px solid red; */
 }
 .btnCont * {
   margin: 0.2rem 0;
@@ -22,4 +20,15 @@
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+}
+.marketCont {
+  /* border: 2px solid yellow; */
+  font-weight: bolder;
+  /* width: 90vw; */
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  color: rgb(40, 207, 40);
+  text-align: center;
 }
